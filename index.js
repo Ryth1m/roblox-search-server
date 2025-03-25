@@ -6,6 +6,12 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Default route to check if the server is running
+app.get("/", (req, res) => {
+    res.send("AI Bot Server is Running!");
+});
+
+// Route for AI chatbot
 app.post("/ask", async (req, res) => {
     const { question } = req.body;
     
