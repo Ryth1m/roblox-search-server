@@ -19,9 +19,6 @@ def search_google(query):
     if "error" in results:
         return f"API Error: {results['error']}"
 
-    if "organic_results" in results:
-        return results["organic_results"][0]["snippet"]
-
     if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Render sets a dynamic port
     app.run(host='0.0.0.0', port=port)
