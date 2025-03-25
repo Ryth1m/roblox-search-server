@@ -21,5 +21,9 @@ def search_google(query):
 
     if "organic_results" in results:
         return results["organic_results"][0]["snippet"]
+
+    if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))  # Render sets a dynamic port
+    app.run(host='0.0.0.0', port=port)
     
     return "No results found."
