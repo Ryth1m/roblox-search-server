@@ -1,24 +1,22 @@
-const express = require('express');
+const express = require("express");
+const axios = require("axios");
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Simple route
-app.get('/', (req, res) => {
-    res.send('Roblox Search Server is running!');
-});
+app.use(express.json());
 
-// Search route
-app.get('/search', (req, res) => {
-    const query = req.query.query; // Get query parameter
-    if (!query) {
-        return res.status(400).json({ error: 'Missing query parameter' });
-    }
+app.post("/ask", async (req, res) => {
+    const { question } = req.body;
     
-    // Placeholder response (Replace this with actual search logic)
-    res.json({ message: `Searching for: ${query}` });
+    try {
+        const response = await axios.get(`http://127.0.0.1:5000/search?query=${encodeURIComponent(question)}`);
+        res.json({ answer: response.data.answer });
+    } catch (error) {
+        res.status(500).json({ error: "Failed to get response" });
+    }
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
