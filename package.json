@@ -1,5 +1,4 @@
-{
-  "name": "roblox-search-server",
+{"name": "roblox-search-server",
   "version": "1.0.0",
   "description": "A simple Express.js server for Roblox search",
   "main": "index.js",
@@ -8,5 +7,9 @@
   },
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "dependencies": {
+  "express": "^4.18.2",
+  "axios": "^1.6.0"
 }
+
