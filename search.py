@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from serpapi import GoogleSearch
 
@@ -8,7 +9,7 @@ def search_google(query):
         "q": query,
         "hl": "en",
         "gl": "us",
-        "api_key": "e1e28954f506349ca3d8c24026119d9714bdcf62c5c3d0738b182b755035c1b7"  # Replace this with your API key
+        "api_key": os.getenv("e1e28954f506349ca3d8c24026119d9714bdcf62c5c3d0738b182b755035c1b7")  # Use the environment variable
     }
     search = GoogleSearch(params)
     results = search.get_dict()
