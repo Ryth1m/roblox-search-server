@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from serpapi.google_search import GoogleSearch  # <-- This line might be different!
+from serpapi import GoogleSearch
 import os  # Add this
 
 app = Flask(__name__)
