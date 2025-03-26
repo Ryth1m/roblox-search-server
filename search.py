@@ -1,6 +1,13 @@
+import os
+import subprocess
 from flask import Flask, request, jsonify
-from serpapi import GoogleSearch
-import os  # Add this
+
+# Ensure serpapi is installed
+try:
+    from serpapi import GoogleSearch
+except ImportError:
+    subprocess.run(["pip", "install", "serpapi"], check=True)
+    from serpapi import GoogleSearch
 
 app = Flask(__name__)
 
