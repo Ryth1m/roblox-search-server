@@ -1,2 +1,2 @@
-flask
-google-search-results
+Flask
+serpapi
